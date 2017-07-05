@@ -1,0 +1,62 @@
+<md-toolbar>
+	<div class="md-toolbar-tools">
+		<a md-truncate flex ui-sref="app"><h2>InterCarreras Ufro</h2></a>
+		<md-button ng-click="vm.toggle()" class="md-icon-button md-primary" aria-label="Settings">
+			<md-icon md-svg-icon="img/menu.svg"></md-icon>
+		</md-button>
+	</div>
+</md-toolbar>
+
+<md-sidenav class="md-sidenav-left" md-component-id="sidenav" md-disable-backdrop md-whiteframe="4">
+
+	<md-toolbar >
+	<div class="md-toolbar-tools">
+		<h2 md-truncate flex>Menu</h2>
+		<md-button ng-click="vm.toggle()" class="md-icon-button md-primary" aria-label="Settings">
+			<md-icon md-svg-icon="img/error.svg"></md-icon>
+		</md-button>
+	</div>
+		
+	</md-toolbar>
+
+	<md-content layout-margin>
+		<div layout="column">
+
+			<!-- Header del usuario -->
+			<div layout="row">
+				<div>
+					<img src="img/user.svg" width="90%">
+				</div>
+				<div layout="column">
+					<div>Tipo de usuario</div>
+					<div>Nombre</div>
+					<div>Correo</div>
+				</div>
+			</div>
+
+			<!-- Lista de opciones -->
+			<md-list ng-cloak>
+				<md-subheader class="md-no-sticky">Opciones</md-subheader>
+				<md-list-item ng-click="vm.go('jugadores')">
+				<md-icon md-svg-icon="img/football-player.svg"></md-icon>
+					<p>Jugadores</p>
+				</md-list-item>
+				<md-list-item ng-click="vm.go('equipos')">
+				<md-icon md-svg-icon="img/football-jersey.svg"></md-icon>
+					<p>Equipos</p>
+				</md-list-item>
+				<md-list-item ng-click="vm.go('grupos')">
+				<md-icon md-svg-icon="img/podium.svg"></md-icon>
+					<p>Grupos</p>
+				</md-list-item>
+				<md-list-item ng-click="vm.go('canchas')">
+				<md-icon md-svg-icon="img/field.svg"></md-icon>
+					<p>Canchas</p>
+				</md-list-item>
+
+			</md-list>
+		</div>
+		
+	</md-content>
+
+</md-sidenav>

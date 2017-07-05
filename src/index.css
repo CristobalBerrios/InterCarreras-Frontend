@@ -1,0 +1,31 @@
+html, body, #root {
+  margin: 0;
+  height: 100%;
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* Toolbar style */
+
+md-toolbar .md-toolbar-tools {
+  background-color: #0D47A1;
+}
+
+/* Success buttons styles */
+
+.md-button.md-raised.md-success {
+  background-color: #1B5E20;
+  color: white;
+}
+.md-button.md-raised.md-success:hover {
+  background-color: #2E7D32;
+}
+
+/* Danger buttons styles */
+
+.md-button.md-raised.md-danger {
+  background-color: #B71C1C;
+  color: white;
+}
+.md-button.md-raised.md-danger:hover {
+  background-color: #C62828;
+}

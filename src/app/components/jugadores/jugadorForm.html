@@ -1,0 +1,78 @@
+
+<div layout="row" layout-align="center start">
+	<h1  ng-if="vm.location === 'ver'">Detalles del jugador</h1>
+  <h1  ng-if="vm.location === 'crear'">Agregar jugador</h1>
+  <h1  ng-if="vm.location === 'editar'">Editar jugador</h1>
+</div>
+
+
+
+<div layout="row" layout-align="center" layout-wrap>
+  <div flex-lg="70" flex-xs="100">
+    <form ng-submit="myForm.$valid && vm.enviarFormulario(vm.jugador)" name="myForm" novalidate>
+
+      <md-input-container class="md-icon-float md-block">
+        <label>Matricula</label>
+        <input type="text" ng-model="vm.jugador.matricula" ng-readonly="vm.editable">
+      </md-input-container>
+
+      <md-input-container class="md-icon-float md-block" ng-if="vm.location === 'ver'">
+        <label>Nombre</label>
+        <input type="text" ng-model="vm.jugador.nombre" ng-readonly="vm.editable">
+      </md-input-container>
+
+      <md-input-container class="md-icon-float md-block" ng-if="vm.location === 'ver'">
+        <label>Apellido</label>
+        <input type="text" ng-model="vm.jugador.apellido" ng-readonly="vm.editable">
+      </md-input-container>
+
+      <md-input-container md-no-float class="md-block">
+        <label>Equipo</label>
+        <input type="text" ng-if="vm.location === 'ver'" ng-model="vm.jugador.equipo.nombre" ng-readonly="vm.editable">
+
+        <md-select name="selectEquipo" ng-model="vm.jugador.equipo_id" ng-model-options="{trackBy: '$value'}" required ng-if="vm.location === 'crear' || vm.location === 'editar'">
+          <md-option ng-repeat="equipo in vm.equipos" ng-model="vm.jugador.equipo_id">{{equipo.nombre}}</md-option>
+        </md-select>
+
+        <div ng-messages="myForm.selectEquipo.$error">
+          <div ng-message="required">Debe ingresar un equipo</div>
+        </div>
+      </md-input-container>
+
+      <md-input-container md-no-float class="md-block">
+        <label>Carrera</label>
+        <input type="text" ng-if="vm.location === 'ver'" ng-model="vm.jugador.carrera.nombre" ng-readonly="vm.editable">
+
+        <md-select name="selectCarrera" ng-model="vm.jugador.carrera_id" ng-model-options="{trackBy: '$value'}" required ng-if="vm.location === 'crear' || vm.location === 'editar'">
+          <md-option ng-repeat="carrera in vm.carreras" ng-model="vm.jugador.carrera_id">{{carrera.nombre}}</md-option>
+        </md-select>
+
+        <div ng-messages="myForm.selectEquipo.$error">
+          <div ng-message="required">Debe ingresar un equipo</div>
+        </div>
+      </md-input-container>
+
+      <md-input-container class="md-icon-float md-block">
+        <label>Goles</label>
+        <input type="text" ng-model="vm.jugador.estadistica.goles" ng-readonly="vm.editable">
+      </md-input-container>
+
+      <md-input-container class="md-icon-float md-block">
+        <label>Tarjetas Amarillas</label>
+        <input type="text" ng-model="vm.jugador.estadistica.amarilla" ng-readonly="vm.editable">
+      </md-input-container>
+
+      <md-input-container class="md-icon-float md-block">
+        <label>Tarjetas Rojas</label>
+        <input type="text" ng-model="vm.jugador.estadistica.roja" ng-readonly="vm.editable">
+      </md-input-container>
+      
+      <div layout="column" flex>
+        <md-button type="submit" class="md-raised md-primary" ng-if="vm.location === 'crear'">Agregar Prestamo</md-button>
+        <md-button type="submit" class="md-raised md-primary" ng-if="vm.location === 'editar'">Actualizar</md-button>
+        <a ui-sref="jugadores" ng-if="vm.location === 'ver'"><md-button type="button" class="md-raised md-primary">Volver</md-button></a>
+      </div>
+
+    </form>
+  </div>
+</div>
