@@ -13,17 +13,34 @@
 
       <md-input-container class="md-icon-float md-block">
         <label>Matricula</label>
-        <input type="text" ng-model="vm.jugador.matricula" ng-readonly="vm.editable">
+        <input type="text" name="matricula" ng-model="vm.jugador.matricula" ng-readonly="vm.editable" required>
+        <div ng-messages="myForm.matricula.$error">
+          <div ng-message="required">Debe ingresar la matricula</div>
+        </div>
       </md-input-container>
 
-      <md-input-container class="md-icon-float md-block" ng-if="vm.location === 'ver'">
+      <md-input-container class="md-icon-float md-block">
         <label>Nombre</label>
-        <input type="text" ng-model="vm.jugador.nombre" ng-readonly="vm.editable">
+        <input type="text" name="nombre" ng-model="vm.jugador.nombre" ng-readonly="vm.editable" required>
+        <div ng-messages="myForm.nombre.$error">
+          <div ng-message="required">Debe ingresar el nombre</div>
+        </div>
       </md-input-container>
 
-      <md-input-container class="md-icon-float md-block" ng-if="vm.location === 'ver'">
+      <md-input-container class="md-icon-float md-block" >
         <label>Apellido</label>
-        <input type="text" ng-model="vm.jugador.apellido" ng-readonly="vm.editable">
+        <input type="text" name="apellido" ng-model="vm.jugador.apellido" ng-readonly="vm.editable" required>
+        <div ng-messages="myForm.apellido.$error">
+          <div ng-message="required">Debe ingresar el apellido</div>
+        </div>
+      </md-input-container>
+
+      <md-input-container class="md-icon-float md-block">
+        <label>Correo</label>
+        <input type="text" name="correo" ng-model="vm.jugador.correo" ng-readonly="vm.editable" required>
+        <div ng-messages="myForm.correo.$error">
+          <div ng-message="required">Debe ingresar el correo</div>
+        </div>
       </md-input-container>
 
       <md-input-container md-no-float class="md-block">
@@ -31,7 +48,7 @@
         <input type="text" ng-if="vm.location === 'ver'" ng-model="vm.jugador.equipo.nombre" ng-readonly="vm.editable">
 
         <md-select name="selectEquipo" ng-model="vm.jugador.equipo_id" ng-model-options="{trackBy: '$value'}" required ng-if="vm.location === 'crear' || vm.location === 'editar'">
-          <md-option ng-repeat="equipo in vm.equipos" ng-model="vm.jugador.equipo_id">{{equipo.nombre}}</md-option>
+          <md-option ng-repeat="equipo in vm.equipos" value="{{equipo.id}}">{{equipo.nombre}}</md-option>
         </md-select>
 
         <div ng-messages="myForm.selectEquipo.$error">
@@ -44,31 +61,31 @@
         <input type="text" ng-if="vm.location === 'ver'" ng-model="vm.jugador.carrera.nombre" ng-readonly="vm.editable">
 
         <md-select name="selectCarrera" ng-model="vm.jugador.carrera_id" ng-model-options="{trackBy: '$value'}" required ng-if="vm.location === 'crear' || vm.location === 'editar'">
-          <md-option ng-repeat="carrera in vm.carreras" ng-model="vm.jugador.carrera_id">{{carrera.nombre}}</md-option>
+          <md-option ng-repeat="carrera in vm.carreras" value="{{carrera.id}}">{{carrera.nombre}}</md-option>
         </md-select>
 
         <div ng-messages="myForm.selectEquipo.$error">
-          <div ng-message="required">Debe ingresar un equipo</div>
+          <div ng-message="required">Debe ingresar una carrera</div>
         </div>
       </md-input-container>
 
-      <md-input-container class="md-icon-float md-block">
+      <md-input-container class="md-icon-float md-block" ng-if="vm.location === 'ver'">
         <label>Goles</label>
         <input type="text" ng-model="vm.jugador.estadistica.goles" ng-readonly="vm.editable">
       </md-input-container>
 
-      <md-input-container class="md-icon-float md-block">
+      <md-input-container class="md-icon-float md-block" ng-if="vm.location === 'ver'">
         <label>Tarjetas Amarillas</label>
         <input type="text" ng-model="vm.jugador.estadistica.amarilla" ng-readonly="vm.editable">
       </md-input-container>
 
-      <md-input-container class="md-icon-float md-block">
+      <md-input-container class="md-icon-float md-block" ng-if="vm.location === 'ver'">
         <label>Tarjetas Rojas</label>
         <input type="text" ng-model="vm.jugador.estadistica.roja" ng-readonly="vm.editable">
       </md-input-container>
       
       <div layout="column" flex>
-        <md-button type="submit" class="md-raised md-primary" ng-if="vm.location === 'crear'">Agregar Prestamo</md-button>
+        <md-button type="submit" class="md-raised md-primary" ng-if="vm.location === 'crear'">Agregar jugador</md-button>
         <md-button type="submit" class="md-raised md-primary" ng-if="vm.location === 'editar'">Actualizar</md-button>
         <a ui-sref="jugadores" ng-if="vm.location === 'ver'"><md-button type="button" class="md-raised md-primary">Volver</md-button></a>
       </div>

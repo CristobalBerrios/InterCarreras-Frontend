@@ -23,5 +23,8 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
     }).state('crearJugador',{
       url: '/jugador/crear',
       component: 'crearJugador'
+    }).state('canchas',{
+      url:'/canchas',
+      component: 'canchas'
     });
 }

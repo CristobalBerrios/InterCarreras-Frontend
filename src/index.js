@@ -1,2 +1,2 @@
 angular
-  .module('app', ['ui.router','ngResource','ngMaterial','md.data.table']);
+  .module('app', ['ui.router','ngResource','ngMaterial','md.data.table','ngMessages']);

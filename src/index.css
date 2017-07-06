@@ -10,6 +10,16 @@ md-toolbar .md-toolbar-tools {
   background-color: #0D47A1;
 }
 
+/* Fab Button Styles */
+
+.md-button.md-fab.mainColor {
+  background-color: #0D47A1; 
+}
+
+.md-button.md-fab.mainColor:hover{
+  background-color: #1565C0;
+}
+
 /* Success buttons styles */
 
 .md-button.md-raised.md-success {
