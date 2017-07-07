@@ -1,0 +1,47 @@
+
+<div layout="row" layout-align="center start">
+	
+  <h1  ng-if="vm.location === 'crear'">Agregar Equipo</h1>
+  <h1  ng-if="vm.location === 'editar'">Editar jugador</h1>
+</div>
+
+
+
+<div layout="row" layout-align="center" layout-wrap>
+  <div flex-lg="70" flex-xs="100">
+    <form ng-submit="myForm.$valid && vm.enviarFormulario(vm.equipo)" name="myForm" novalidate>
+
+    
+
+      <md-input-container class="md-icon-float md-block">
+        <label>Nombre</label>
+        <input type="text" name="nombre" ng-model="vm.equipo.nombre" ng-readonly="vm.editable" required>
+        <div ng-messages="myForm.nombre.$error">
+          <div ng-message="required">Debe ingresar el nombre</div>
+        </div>
+      </md-input-container>
+
+      
+
+
+
+
+        <md-select name="selectGrupo" ng-model="vm.equipo.grupo_id" ng-model-options="{trackBy: '$value'}" required ng-if="vm.location === 'editar'">
+          <md-option ng-repeat="grupo in vm.grupos" value="{{grupo.id}}">{{grupo.nombre}}</md-option>
+        </md-select>
+
+        <div ng-messages="myForm.selectEquipo.$error">
+          <div ng-message="required">Debe ingresar un grupo</div>
+        </div>
+      </md-input-container>
+
+      
+      <div layout="column" flex>
+        <md-button type="submit" class="md-raised md-primary" ng-if="vm.location === 'crear'">Guardar</md-button>
+        <md-button type="submit" class="md-raised md-primary" ng-if="vm.location === 'editar'">Actualizar</md-button>
+        <a ui-sref="jugadores" ng-if="vm.location === 'ver'"><md-button type="button" class="md-raised md-primary">Volver</md-button></a>
+      </div>
+
+    </form>
+  </div>
+</div>

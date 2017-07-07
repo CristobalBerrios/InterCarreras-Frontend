@@ -26,5 +26,17 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
     }).state('canchas',{
       url:'/canchas',
       component: 'canchas'
+    }).state('grupo',{
+      url: '/grupos',
+      component: 'grupo'
+    }).state('verGrupo',{
+      url:'/grupo/:id',
+      component:'verGrupo'
+    }).state('equipo',{
+      url:'/equipo',
+      component:'equipo'
+    }).state('crearEquipo',{
+      url:'/equipo/crear',
+      component:'crearEquipo'
     });
 }
